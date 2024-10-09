@@ -3,7 +3,12 @@ from groq import Groq
 
 
 class GroqAdapter():
+    '''Class created to interact with Groq's API.'''
     def __init__(self):
+        '''
+        Initializes an instance with the API key stored in .env
+        and sets up a client with this key.
+        '''
         self.api_key = GROQ_API_KEY
         self.client = Groq(
             api_key=self.api_key
@@ -11,6 +16,10 @@ class GroqAdapter():
 
     
     def get_response(self, message):
+        '''
+        Calls one of the AI models available in Groq to retrieve an answer
+        for the message sent in the browser.
+        '''
         chat_completion = self.client.chat.completions.create(
             messages=[
                 {

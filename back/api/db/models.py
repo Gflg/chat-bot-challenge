@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Boolean
 from sqlalchemy.orm import relationship
 
 from api.db.settings import Base
@@ -18,6 +18,7 @@ class ChatMessage(Base):
     id = Column(Integer, primary_key=True, index=True)
     index_order = Column(Integer)
     text = Column(String)
+    is_user_message = Column(Boolean)
     created_at = Column(DateTime)
     updated_at = Column(DateTime)
     chat_id = Column(Integer, ForeignKey("chats.id"))

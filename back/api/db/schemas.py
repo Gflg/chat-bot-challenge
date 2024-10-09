@@ -10,7 +10,7 @@ class CreateChatOutput(BaseModel):
 
 
 class CreateChatMessageInput(BaseModel):
-    '''Schema used as a request model in chat message endpoints.'''
+    '''Schema used as a request model in chat messages endpoints.'''
     text: str
 
 
@@ -20,5 +20,6 @@ class CreateChatMessageOutput(BaseModel):
     chat_id: int
     text: str
     index_order: int
+    is_user_message: bool
     created_at: datetime.datetime
     updated_at: datetime.datetime
